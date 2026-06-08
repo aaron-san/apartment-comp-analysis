@@ -27,20 +27,24 @@ body {
    HIDE TOGGLE + INPUT + OUTPUT FOR CELLS TAGGED "no_toggle"
    ============================================================ */
 
+/* Hide collapse/toggle buttons */
 .jp-Notebook-cell.celltag_no_toggle .jp-Collapser,
 .jp-Notebook-cell.celltag_no_toggle .jp-InputCollapser,
 .jp-Notebook-cell.celltag_no_toggle .jp-OutputCollapser {
     display: none !important;
 }
 
+/* Hide input area */
 .jp-Notebook-cell.celltag_no_toggle .jp-Cell-inputWrapper {
     display: none !important;
 }
 
+/* Hide output area */
 .jp-Notebook-cell.celltag_no_toggle .jp-Cell-outputWrapper {
     display: none !important;
 }
 
+/* Hide prompts */
 .jp-Notebook-cell.celltag_no_toggle .jp-InputPrompt,
 .jp-Notebook-cell.celltag_no_toggle .jp-OutputPrompt {
     display: none !important;
