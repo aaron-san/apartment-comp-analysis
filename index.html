@@ -7800,12 +7800,12 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
 
-<span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
+<span class="n">html</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">&lt;style&gt;</span>
 <span class="s2">body {</span>
 <span class="s2">    background: white;</span>
@@ -7820,7 +7820,17 @@ a.anchor-link {
 <span class="s2">    background-attachment: fixed;</span>
 <span class="s2">}</span>
 <span class="s2">&lt;/style&gt;</span>
-<span class="s2">"""</span><span class="p">)</span>
+<span class="s2">"""</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html</span><span class="p">))</span>
+
+<span class="c1"># from IPython.display import display, HTML</span>
+
+<span class="c1"># html = """</span>
+<span class="c1"># &lt;img id="img-apartment-building" src="images/apartment-building.jpg" /&gt;</span>
+<span class="c1"># """</span>
+
+<span class="c1"># display(HTML(html))</span>
 </pre></div>
 </div>
 </div>
@@ -7830,9 +7840,9 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style>
 body {
     background: white;

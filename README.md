@@ -4,10 +4,21 @@
 **Last Updated:** June 7, 2026  
 **Data Source:** Zillow Research, U.S. Census Bureau
 
--- normal
-python -m nbconvert main.ipynb --to html
--- collapsible
-python -m nbconvert main.ipynb --to html --template lab 
+---
+## Developer's Workflow
+
+1. Run all Cells
+
+2. Create HTML
+```bash
+#  normal
+python -m nbconvert index.ipynb --to html
+#  collapsible
+# python -m nbconvert index.ipynb --to html --template lab 
+```
+
+3. Push to remote (GitHub
+4. )
 
 ---
 
