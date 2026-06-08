@@ -53,8 +53,8 @@ div.text_cell_render,
 main {
     /* width: 80%; */
     padding: 1rem 2rem 0;
-    margin: 22rem 8rem 8rem;
-    background: white;
+    margin: 4rem 6rem 6rem;
+    background: rgb(250, 246, 246);
     border: 1px solid rgb(210, 210, 210);
     /* position: relative;
     z-index: 10; */
