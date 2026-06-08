@@ -114,6 +114,17 @@ img {
     display: none !important;
 }
 
+/* Hide the little toolbar/buttons for hidden-input cells */
+div.cell.tag_hide_input .input_prompt,
+div.cell.tag_hide_input .prompt,
+div.cell.tag_hide_input .jp-InputPrompt,
+div.cell.tag_hide_input .jp-Cell-inputWrapper .jp-Toolbar {
+    display: none !important;
+}
+
+
+
+
 /* --- Output area --- */
 div:has(.jp-Cell-outputWrapper) {
     padding: 1.4rem;
