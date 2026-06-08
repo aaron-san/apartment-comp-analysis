@@ -181,7 +181,7 @@ div:has(.jp-Cell-outputWrapper) {
 
 /* --- Cover page --- */
 #cover-page-container {
-    position: absolute;
+    position: absolute; /* Allows positioning of the image and text within the container */
     left: 0;
     top: 0;
     width: 100%;
@@ -195,12 +195,17 @@ div:has(.jp-Cell-outputWrapper) {
     left: 0;
     width: 100%;
     height: 400px;
-    z-index: -1;
+    /* object-fit: cover; Ensures the image covers the entire container */
+    z-index: -1; /* Sends the image to the background */
 }
 
 #title-container {
-    color: white;
-    text-align: center;
+    /* position: absolute; Positioning on top of the image */
+    /* top: 50%; Position vertically in the middle */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); Centers the text horizontally and vertically */
+    color: white; /* Text color */
+    text-align: center; /* Centers the text */
     padding: 8rem 0 2rem;
 }
 
@@ -218,11 +223,15 @@ div:has(.jp-Cell-outputWrapper) {
 }
 
 #title-bar {
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
     width: 30%;
     text-align: center;
     margin: 0 auto;
+    height: 1px; /* You can adjust the height */
+    background-color: #fff; /* Adjust background color as needed */
     height: 1px;
-    background-color: #fff;
 }
 
 /* --- Panel components --- */
