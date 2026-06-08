@@ -23,6 +23,13 @@ body {
   }
 }
 
+div.cell.tag_no_toggle .jp-Collapser,
+div.cell.tag_no_toggle .input_collapser,
+div.cell.tag_no_toggle .output_collapser {
+    display: none !important;
+}
+
+
 /* ----- MARKDOWN BACKGROUND ----- */
 .jp-MarkdownOutput .jp-RenderedHTMLCommon,
 .jp-MarkdownOutput,
