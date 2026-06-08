@@ -372,9 +372,11 @@ div:has(.jp-Cell-outputWrapper) {
 
 
 
-.jp-CodeCell .jp-Cell-inputWrapper
-{
-    display: none !important;
+.jp-CodeCell .jp-Cell-inputWrapper {
+    display: none;
+}
+.jp-CodeCell.show-code .jp-Cell-inputWrapper {
+    display: block !important;
 }
 
 .jp-CodeCell > .jp-Cell-outputWrapper img {
