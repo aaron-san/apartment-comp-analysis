@@ -7800,11 +7800,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
 
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
 
 <span class="n">html</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">&lt;style&gt;</span>
@@ -7815,36 +7817,36 @@ a.anchor-link {
 <span class="s2">    z-index: -1;</span>
 <span class="s2">}</span>
 
-<span class="s2">.glow {</span>
+<span class="s2">.bubble {</span>
 <span class="s2">    position: absolute;</span>
 <span class="s2">    border-radius: 50%;</span>
-<span class="s2">    filter: blur(40px);</span>
-<span class="s2">    opacity: 0.18;</span>
+<span class="s2">    background: rgba(180, 180, 180, 0.12);</span>
+<span class="s2">    filter: blur(18px);</span>
 <span class="s2">}</span>
 
-<span class="s2">/* Corner glows */</span>
-<span class="s2">.g1 { width: 300px; height: 300px; top: -120px; left: -120px;</span>
-<span class="s2">      background: radial-gradient(circle, #bfbfbf 0%, transparent 70%); }</span>
+<span class="s2">/* Top-left */</span>
+<span class="s2">.b1 { width: 180px; height: 180px; top: -40px; left: -40px; }</span>
 
-<span class="s2">.g2 { width: 260px; height: 260px; top: -100px; right: -100px;</span>
-<span class="s2">      background: radial-gradient(circle, #c8c8c8 0%, transparent 70%); }</span>
+<span class="s2">/* Top-right */</span>
+<span class="s2">.b2 { width: 140px; height: 140px; top: -20px; right: -30px; }</span>
 
-<span class="s2">.g3 { width: 280px; height: 280px; bottom: -110px; left: -110px;</span>
-<span class="s2">      background: radial-gradient(circle, #d0d0d0 0%, transparent 70%); }</span>
+<span class="s2">/* Bottom-left */</span>
+<span class="s2">.b3 { width: 160px; height: 160px; bottom: -30px; left: -20px; }</span>
 
-<span class="s2">.g4 { width: 320px; height: 320px; bottom: -130px; right: -130px;</span>
-<span class="s2">      background: radial-gradient(circle, #bdbdbd 0%, transparent 70%); }</span>
+<span class="s2">/* Bottom-right */</span>
+<span class="s2">.b4 { width: 200px; height: 200px; bottom: -50px; right: -40px; }</span>
 <span class="s2">&lt;/style&gt;</span>
 
 <span class="s2">&lt;div class="bubble-container"&gt;</span>
-<span class="s2">    &lt;div class="glow g1"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="glow g2"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="glow g3"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="glow g4"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b1"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b2"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b3"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b4"&gt;&lt;/div&gt;</span>
 <span class="s2">&lt;/div&gt;</span>
 <span class="s2">"""</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html</span><span class="p">))</span>
+
 
 
 
