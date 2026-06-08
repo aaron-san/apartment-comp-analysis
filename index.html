@@ -7808,57 +7808,46 @@ a.anchor-link {
 
 <span class="n">html</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">&lt;style&gt;</span>
-<span class="s2">/* Container that holds the bubbles */</span>
 <span class="s2">.bubble-container {</span>
 <span class="s2">    position: fixed;</span>
-<span class="s2">    top: 0;</span>
-<span class="s2">    left: 0;</span>
-<span class="s2">    width: 100%;</span>
-<span class="s2">    height: 100%;</span>
-<span class="s2">    pointer-events: none; /* Don't block clicks */</span>
-<span class="s2">    z-index: -1; /* Behind notebook content */</span>
+<span class="s2">    inset: 0;</span>
+<span class="s2">    pointer-events: none;</span>
+<span class="s2">    z-index: -1;</span>
 <span class="s2">}</span>
 
-<span class="s2">/* Individual bubbles */</span>
-<span class="s2">.bubble {</span>
+<span class="s2">.glow {</span>
 <span class="s2">    position: absolute;</span>
-<span class="s2">    background: rgba(180, 180, 180, 0.15);</span>
 <span class="s2">    border-radius: 50%;</span>
+<span class="s2">    filter: blur(40px);</span>
+<span class="s2">    opacity: 0.18;</span>
 <span class="s2">}</span>
 
-<span class="s2">/* Define bubbles around the perimeter */</span>
-<span class="s2">.b1 { width: 20px; height: 50px; top: 20px; left: 20px; }</span>
-<span class="s2">.b2 { width: 30px; height: 80px; top: 40px; right: 40px; }</span>
-<span class="s2">.b3 { width: 14px; height: 40px; bottom: 30px; left: 50px; }</span>
-<span class="s2">.b4 { width: 10px; height: 60px; bottom: 50px; right: 60px; }</span>
-<span class="s2">.b5 { width: 7px; height: 20px; top: 50px; left: 35px;}</span>
-<span class="s2">.b6 { width: 15px; height: 15px; top: 110px; right: 30px;}</span>
-<span class="s2">.b7 { width: 20px; height: 50px; top: 20px; left: 20px; }</span>
-<span class="s2">.b8 { width: 30px; height: 80px; top: 45px; right: 50px; }</span>
-<span class="s2">.b9 { width: 14px; height: 40px; bottom: 30px; left: 50px; }</span>
-<span class="s2">.b10 { width: 10px; height: 60px; bottom: 50px; right: 60px; }</span>
-<span class="s2">.b11 { width: 7px; height: 20px; top: 60px; left: 10px; }</span>
-<span class="s2">.b12 { width: 15px; height: 15px; top: 50%; right: -20px; }</span>
+<span class="s2">/* Corner glows */</span>
+<span class="s2">.g1 { width: 300px; height: 300px; top: -120px; left: -120px;</span>
+<span class="s2">      background: radial-gradient(circle, #bfbfbf 0%, transparent 70%); }</span>
+
+<span class="s2">.g2 { width: 260px; height: 260px; top: -100px; right: -100px;</span>
+<span class="s2">      background: radial-gradient(circle, #c8c8c8 0%, transparent 70%); }</span>
+
+<span class="s2">.g3 { width: 280px; height: 280px; bottom: -110px; left: -110px;</span>
+<span class="s2">      background: radial-gradient(circle, #d0d0d0 0%, transparent 70%); }</span>
+
+<span class="s2">.g4 { width: 320px; height: 320px; bottom: -130px; right: -130px;</span>
+<span class="s2">      background: radial-gradient(circle, #bdbdbd 0%, transparent 70%); }</span>
 <span class="s2">&lt;/style&gt;</span>
 
 <span class="s2">&lt;div class="bubble-container"&gt;</span>
-<span class="s2">    &lt;div class="bubble b1"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b2"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b3"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b4"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b5"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b6"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b7"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b8"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b9"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b10"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b11"&gt;&lt;/div&gt;</span>
-<span class="s2">    &lt;div class="bubble b12"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="glow g1"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="glow g2"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="glow g3"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="glow g4"&gt;&lt;/div&gt;</span>
 <span class="s2">&lt;/div&gt;</span>
 <span class="s2">"""</span>
 
-
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html</span><span class="p">))</span>
+
+
+
 
 <span class="c1"># from IPython.display import display, HTML</span>
 
@@ -7880,39 +7869,38 @@ a.anchor-link {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style>
-/* Container that holds the bubbles */
 .bubble-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Don't block clicks */
-    z-index: -1; /* Behind notebook content */
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
 }
 
-/* Individual bubbles */
-.bubble {
+.glow {
     position: absolute;
-    background: rgba(180, 180, 180, 0.15);
     border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.18;
 }
 
-/* Define bubbles around the perimeter */
-.b1 { width: 20px; height: 20px; top: 20px; left: 20px; }
-.b2 { width: 30px; height: 30px; top: 40px; right: 40px; }
-.b3 { width: 14px; height: 14px; bottom: 30px; left: 50px; }
-.b4 { width: 10px; height: 10px; bottom: 50px; right: 60px; }
-.b5 { width: 7px; height: 7px; top: 50%; left: -20px; transform: translateY(-50%); }
-.b6 { width: 15px; height: 15px; top: 50%; right: -20px; transform: translateY(-50%); }
+/* Corner glows */
+.g1 { width: 300px; height: 300px; top: -120px; left: -120px;
+      background: radial-gradient(circle, #bfbfbf 0%, transparent 70%); }
+
+.g2 { width: 260px; height: 260px; top: -100px; right: -100px;
+      background: radial-gradient(circle, #c8c8c8 0%, transparent 70%); }
+
+.g3 { width: 280px; height: 280px; bottom: -110px; left: -110px;
+      background: radial-gradient(circle, #d0d0d0 0%, transparent 70%); }
+
+.g4 { width: 320px; height: 320px; bottom: -130px; right: -130px;
+      background: radial-gradient(circle, #bdbdbd 0%, transparent 70%); }
 </style>
 <div class="bubble-container">
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
-<div class="bubble b4"></div>
-<div class="bubble b5"></div>
-<div class="bubble b6"></div>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="glow g3"></div>
+<div class="glow g4"></div>
 </div>
 </div>
 </div>
@@ -7923,7 +7911,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
@@ -7960,7 +7948,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="custom.css" rel="stylesheet"/>
@@ -8019,7 +8007,7 @@ New Construction Median Sale Price Per Sqft: The median sale price divided by sq
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ===============================</span>
@@ -8070,7 +8058,7 @@ New Construction Median Sale Price Per Sqft: The median sale price divided by sq
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ==========================</span>
@@ -8302,164 +8290,164 @@ New Construction Median Sale Price Per Sqft: The median sale price divided by sq
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_60831 caption {
+#T_c97a4 caption {
   caption-side: top;
   text-align: left;
 }
 </style>
-<table id="T_60831">
+<table id="T_c97a4">
 <caption>
 <div style="font-size:18px; font-weight:600;">Which cities are leading rental rate growth?</div>
 <div style="font-size:13px; color:#888; margin-bottom: 2px;">Rank movements over the last 18 months</div>
 </caption>
 <thead>
 <tr>
-<th class="col_heading level0 col0" id="T_60831_level0_col0">RegionName</th>
-<th class="col_heading level0 col1" id="T_60831_level0_col1">Date</th>
-<th class="col_heading level0 col2" id="T_60831_level0_col2">Zori</th>
-<th class="col_heading level0 col3" id="T_60831_level0_col3">SizeRank</th>
-<th class="col_heading level0 col4" id="T_60831_level0_col4">CAGR_1yr</th>
-<th class="col_heading level0 col5" id="T_60831_level0_col5">CAGR_2yr</th>
-<th class="col_heading level0 col6" id="T_60831_level0_col6">CAGR_5yr</th>
-<th class="col_heading level0 col7" id="T_60831_level0_col7">SD_1yr</th>
-<th class="col_heading level0 col8" id="T_60831_level0_col8">SD_2yr</th>
-<th class="col_heading level0 col9" id="T_60831_level0_col9">SD_5yr</th>
-<th class="col_heading level0 col10" id="T_60831_level0_col10">Population 2025</th>
+<th class="col_heading level0 col0" id="T_c97a4_level0_col0">RegionName</th>
+<th class="col_heading level0 col1" id="T_c97a4_level0_col1">Date</th>
+<th class="col_heading level0 col2" id="T_c97a4_level0_col2">Zori</th>
+<th class="col_heading level0 col3" id="T_c97a4_level0_col3">SizeRank</th>
+<th class="col_heading level0 col4" id="T_c97a4_level0_col4">CAGR_1yr</th>
+<th class="col_heading level0 col5" id="T_c97a4_level0_col5">CAGR_2yr</th>
+<th class="col_heading level0 col6" id="T_c97a4_level0_col6">CAGR_5yr</th>
+<th class="col_heading level0 col7" id="T_c97a4_level0_col7">SD_1yr</th>
+<th class="col_heading level0 col8" id="T_c97a4_level0_col8">SD_2yr</th>
+<th class="col_heading level0 col9" id="T_c97a4_level0_col9">SD_5yr</th>
+<th class="col_heading level0 col10" id="T_c97a4_level0_col10">Population 2025</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="data row0 col0" id="T_60831_row0_col0">Cedar Rapids, IA</td>
-<td class="data row0 col1" id="T_60831_row0_col1">Apr 2026</td>
-<td class="data row0 col2" id="T_60831_row0_col2">1,014</td>
-<td class="data row0 col3" id="T_60831_row0_col3">179</td>
-<td class="data row0 col4" id="T_60831_row0_col4">12.9%</td>
-<td class="data row0 col5" id="T_60831_row0_col5">8.5%</td>
-<td class="data row0 col6" id="T_60831_row0_col6">6.2%</td>
-<td class="data row0 col7" id="T_60831_row0_col7">3.1%</td>
-<td class="data row0 col8" id="T_60831_row0_col8">4.2%</td>
-<td class="data row0 col9" id="T_60831_row0_col9">3.7%</td>
-<td class="data row0 col10" id="T_60831_row0_col10">279,285</td>
+<td class="data row0 col0" id="T_c97a4_row0_col0">Cedar Rapids, IA</td>
+<td class="data row0 col1" id="T_c97a4_row0_col1">Apr 2026</td>
+<td class="data row0 col2" id="T_c97a4_row0_col2">1,014</td>
+<td class="data row0 col3" id="T_c97a4_row0_col3">179</td>
+<td class="data row0 col4" id="T_c97a4_row0_col4">12.9%</td>
+<td class="data row0 col5" id="T_c97a4_row0_col5">8.5%</td>
+<td class="data row0 col6" id="T_c97a4_row0_col6">6.2%</td>
+<td class="data row0 col7" id="T_c97a4_row0_col7">3.1%</td>
+<td class="data row0 col8" id="T_c97a4_row0_col8">4.2%</td>
+<td class="data row0 col9" id="T_c97a4_row0_col9">3.7%</td>
+<td class="data row0 col10" id="T_c97a4_row0_col10">279,285</td>
 </tr>
 <tr>
-<td class="data row1 col0" id="T_60831_row1_col0">Evansville, IN</td>
-<td class="data row1 col1" id="T_60831_row1_col1">Apr 2026</td>
-<td class="data row1 col2" id="T_60831_row1_col2">1,001</td>
-<td class="data row1 col3" id="T_60831_row1_col3">165</td>
-<td class="data row1 col4" id="T_60831_row1_col4">12.0%</td>
-<td class="data row1 col5" id="T_60831_row1_col5">9.7%</td>
-<td class="data row1 col6" id="T_60831_row1_col6">9.9%</td>
-<td class="data row1 col7" id="T_60831_row1_col7">8.5%</td>
-<td class="data row1 col8" id="T_60831_row1_col8">6.2%</td>
-<td class="data row1 col9" id="T_60831_row1_col9">5.3%</td>
-<td class="data row1 col10" id="T_60831_row1_col10">273,786</td>
+<td class="data row1 col0" id="T_c97a4_row1_col0">Evansville, IN</td>
+<td class="data row1 col1" id="T_c97a4_row1_col1">Apr 2026</td>
+<td class="data row1 col2" id="T_c97a4_row1_col2">1,001</td>
+<td class="data row1 col3" id="T_c97a4_row1_col3">165</td>
+<td class="data row1 col4" id="T_c97a4_row1_col4">12.0%</td>
+<td class="data row1 col5" id="T_c97a4_row1_col5">9.7%</td>
+<td class="data row1 col6" id="T_c97a4_row1_col6">9.9%</td>
+<td class="data row1 col7" id="T_c97a4_row1_col7">8.5%</td>
+<td class="data row1 col8" id="T_c97a4_row1_col8">6.2%</td>
+<td class="data row1 col9" id="T_c97a4_row1_col9">5.3%</td>
+<td class="data row1 col10" id="T_c97a4_row1_col10">273,786</td>
 </tr>
 <tr>
-<td class="data row2 col0" id="T_60831_row2_col0">Binghamton, NY</td>
-<td class="data row2 col1" id="T_60831_row2_col1">Apr 2026</td>
-<td class="data row2 col2" id="T_60831_row2_col2">1,213</td>
-<td class="data row2 col3" id="T_60831_row2_col3">195</td>
-<td class="data row2 col4" id="T_60831_row2_col4">8.9%</td>
-<td class="data row2 col5" id="T_60831_row2_col5">7.1%</td>
-<td class="data row2 col6" id="T_60831_row2_col6">9.6%</td>
-<td class="data row2 col7" id="T_60831_row2_col7">5.8%</td>
-<td class="data row2 col8" id="T_60831_row2_col8">5.1%</td>
-<td class="data row2 col9" id="T_60831_row2_col9">5.8%</td>
-<td class="data row2 col10" id="T_60831_row2_col10">243,189</td>
+<td class="data row2 col0" id="T_c97a4_row2_col0">Binghamton, NY</td>
+<td class="data row2 col1" id="T_c97a4_row2_col1">Apr 2026</td>
+<td class="data row2 col2" id="T_c97a4_row2_col2">1,213</td>
+<td class="data row2 col3" id="T_c97a4_row2_col3">195</td>
+<td class="data row2 col4" id="T_c97a4_row2_col4">8.9%</td>
+<td class="data row2 col5" id="T_c97a4_row2_col5">7.1%</td>
+<td class="data row2 col6" id="T_c97a4_row2_col6">9.6%</td>
+<td class="data row2 col7" id="T_c97a4_row2_col7">5.8%</td>
+<td class="data row2 col8" id="T_c97a4_row2_col8">5.1%</td>
+<td class="data row2 col9" id="T_c97a4_row2_col9">5.8%</td>
+<td class="data row2 col10" id="T_c97a4_row2_col10">243,189</td>
 </tr>
 <tr>
-<td class="data row3 col0" id="T_60831_row3_col0">Reno, NV</td>
-<td class="data row3 col1" id="T_60831_row3_col1">Apr 2026</td>
-<td class="data row3 col2" id="T_60831_row3_col2">1,783</td>
-<td class="data row3 col3" id="T_60831_row3_col3">113</td>
-<td class="data row3 col4" id="T_60831_row3_col4">8.9%</td>
-<td class="data row3 col5" id="T_60831_row3_col5">5.9%</td>
-<td class="data row3 col6" id="T_60831_row3_col6">4.3%</td>
-<td class="data row3 col7" id="T_60831_row3_col7">3.3%</td>
-<td class="data row3 col8" id="T_60831_row3_col8">3.2%</td>
-<td class="data row3 col9" id="T_60831_row3_col9">3.6%</td>
-<td class="data row3 col10" id="T_60831_row3_col10">578,734</td>
+<td class="data row3 col0" id="T_c97a4_row3_col0">Reno, NV</td>
+<td class="data row3 col1" id="T_c97a4_row3_col1">Apr 2026</td>
+<td class="data row3 col2" id="T_c97a4_row3_col2">1,783</td>
+<td class="data row3 col3" id="T_c97a4_row3_col3">113</td>
+<td class="data row3 col4" id="T_c97a4_row3_col4">8.9%</td>
+<td class="data row3 col5" id="T_c97a4_row3_col5">5.9%</td>
+<td class="data row3 col6" id="T_c97a4_row3_col6">4.3%</td>
+<td class="data row3 col7" id="T_c97a4_row3_col7">3.3%</td>
+<td class="data row3 col8" id="T_c97a4_row3_col8">3.2%</td>
+<td class="data row3 col9" id="T_c97a4_row3_col9">3.6%</td>
+<td class="data row3 col10" id="T_c97a4_row3_col10">578,734</td>
 </tr>
 <tr>
-<td class="data row4 col0" id="T_60831_row4_col0">Gulfport, MS</td>
-<td class="data row4 col1" id="T_60831_row4_col1">Apr 2026</td>
-<td class="data row4 col2" id="T_60831_row4_col2">1,206</td>
-<td class="data row4 col3" id="T_60831_row4_col3">133</td>
-<td class="data row4 col4" id="T_60831_row4_col4">8.3%</td>
-<td class="data row4 col5" id="T_60831_row4_col5">6.6%</td>
-<td class="data row4 col6" id="T_60831_row4_col6">8.2%</td>
-<td class="data row4 col7" id="T_60831_row4_col7">4.1%</td>
-<td class="data row4 col8" id="T_60831_row4_col8">4.3%</td>
-<td class="data row4 col9" id="T_60831_row4_col9">4.9%</td>
-<td class="data row4 col10" id="T_60831_row4_col10">-</td>
+<td class="data row4 col0" id="T_c97a4_row4_col0">Gulfport, MS</td>
+<td class="data row4 col1" id="T_c97a4_row4_col1">Apr 2026</td>
+<td class="data row4 col2" id="T_c97a4_row4_col2">1,206</td>
+<td class="data row4 col3" id="T_c97a4_row4_col3">133</td>
+<td class="data row4 col4" id="T_c97a4_row4_col4">8.3%</td>
+<td class="data row4 col5" id="T_c97a4_row4_col5">6.6%</td>
+<td class="data row4 col6" id="T_c97a4_row4_col6">8.2%</td>
+<td class="data row4 col7" id="T_c97a4_row4_col7">4.1%</td>
+<td class="data row4 col8" id="T_c97a4_row4_col8">4.3%</td>
+<td class="data row4 col9" id="T_c97a4_row4_col9">4.9%</td>
+<td class="data row4 col10" id="T_c97a4_row4_col10">-</td>
 </tr>
 <tr>
-<td class="data row5 col0" id="T_60831_row5_col0">Salisbury, MD</td>
-<td class="data row5 col1" id="T_60831_row5_col1">Apr 2026</td>
-<td class="data row5 col2" id="T_60831_row5_col2">1,767</td>
-<td class="data row5 col3" id="T_60831_row5_col3">134</td>
-<td class="data row5 col4" id="T_60831_row5_col4">6.5%</td>
-<td class="data row5 col5" id="T_60831_row5_col5">6.1%</td>
-<td class="data row5 col6" id="T_60831_row5_col6">6.5%</td>
-<td class="data row5 col7" id="T_60831_row5_col7">4.2%</td>
-<td class="data row5 col8" id="T_60831_row5_col8">3.6%</td>
-<td class="data row5 col9" id="T_60831_row5_col9">5.9%</td>
-<td class="data row5 col10" id="T_60831_row5_col10">131,872</td>
+<td class="data row5 col0" id="T_c97a4_row5_col0">Salisbury, MD</td>
+<td class="data row5 col1" id="T_c97a4_row5_col1">Apr 2026</td>
+<td class="data row5 col2" id="T_c97a4_row5_col2">1,767</td>
+<td class="data row5 col3" id="T_c97a4_row5_col3">134</td>
+<td class="data row5 col4" id="T_c97a4_row5_col4">6.5%</td>
+<td class="data row5 col5" id="T_c97a4_row5_col5">6.1%</td>
+<td class="data row5 col6" id="T_c97a4_row5_col6">6.5%</td>
+<td class="data row5 col7" id="T_c97a4_row5_col7">4.2%</td>
+<td class="data row5 col8" id="T_c97a4_row5_col8">3.6%</td>
+<td class="data row5 col9" id="T_c97a4_row5_col9">5.9%</td>
+<td class="data row5 col10" id="T_c97a4_row5_col10">131,872</td>
 </tr>
 <tr>
-<td class="data row6 col0" id="T_60831_row6_col0">Urban Honolulu, HI</td>
-<td class="data row6 col1" id="T_60831_row6_col1">Apr 2026</td>
-<td class="data row6 col2" id="T_60831_row6_col2">2,393</td>
-<td class="data row6 col3" id="T_60831_row6_col3">55</td>
-<td class="data row6 col4" id="T_60831_row6_col4">6.4%</td>
-<td class="data row6 col5" id="T_60831_row6_col5">5.4%</td>
-<td class="data row6 col6" id="T_60831_row6_col6">5.2%</td>
-<td class="data row6 col7" id="T_60831_row6_col7">3.1%</td>
-<td class="data row6 col8" id="T_60831_row6_col8">2.3%</td>
-<td class="data row6 col9" id="T_60831_row6_col9">2.6%</td>
-<td class="data row6 col10" id="T_60831_row6_col10">988,703</td>
+<td class="data row6 col0" id="T_c97a4_row6_col0">Urban Honolulu, HI</td>
+<td class="data row6 col1" id="T_c97a4_row6_col1">Apr 2026</td>
+<td class="data row6 col2" id="T_c97a4_row6_col2">2,393</td>
+<td class="data row6 col3" id="T_c97a4_row6_col3">55</td>
+<td class="data row6 col4" id="T_c97a4_row6_col4">6.4%</td>
+<td class="data row6 col5" id="T_c97a4_row6_col5">5.4%</td>
+<td class="data row6 col6" id="T_c97a4_row6_col6">5.2%</td>
+<td class="data row6 col7" id="T_c97a4_row6_col7">3.1%</td>
+<td class="data row6 col8" id="T_c97a4_row6_col8">2.3%</td>
+<td class="data row6 col9" id="T_c97a4_row6_col9">2.6%</td>
+<td class="data row6 col10" id="T_c97a4_row6_col10">988,703</td>
 </tr>
 <tr>
-<td class="data row7 col0" id="T_60831_row7_col0">San Francisco, CA</td>
-<td class="data row7 col1" id="T_60831_row7_col1">Apr 2026</td>
-<td class="data row7 col2" id="T_60831_row7_col2">2,991</td>
-<td class="data row7 col3" id="T_60831_row7_col3">12</td>
-<td class="data row7 col4" id="T_60831_row7_col4">6.2%</td>
-<td class="data row7 col5" id="T_60831_row7_col5">4.9%</td>
-<td class="data row7 col6" id="T_60831_row7_col6">4.1%</td>
-<td class="data row7 col7" id="T_60831_row7_col7">1.5%</td>
-<td class="data row7 col8" id="T_60831_row7_col8">1.5%</td>
-<td class="data row7 col9" id="T_60831_row7_col9">2.2%</td>
-<td class="data row7 col10" id="T_60831_row7_col10">-</td>
+<td class="data row7 col0" id="T_c97a4_row7_col0">San Francisco, CA</td>
+<td class="data row7 col1" id="T_c97a4_row7_col1">Apr 2026</td>
+<td class="data row7 col2" id="T_c97a4_row7_col2">2,991</td>
+<td class="data row7 col3" id="T_c97a4_row7_col3">12</td>
+<td class="data row7 col4" id="T_c97a4_row7_col4">6.2%</td>
+<td class="data row7 col5" id="T_c97a4_row7_col5">4.9%</td>
+<td class="data row7 col6" id="T_c97a4_row7_col6">4.1%</td>
+<td class="data row7 col7" id="T_c97a4_row7_col7">1.5%</td>
+<td class="data row7 col8" id="T_c97a4_row7_col8">1.5%</td>
+<td class="data row7 col9" id="T_c97a4_row7_col9">2.2%</td>
+<td class="data row7 col10" id="T_c97a4_row7_col10">-</td>
 </tr>
 <tr>
-<td class="data row8 col0" id="T_60831_row8_col0">Rockford, IL</td>
-<td class="data row8 col1" id="T_60831_row8_col1">Apr 2026</td>
-<td class="data row8 col2" id="T_60831_row8_col2">1,057</td>
-<td class="data row8 col3" id="T_60831_row8_col3">153</td>
-<td class="data row8 col4" id="T_60831_row8_col4">6.0%</td>
-<td class="data row8 col5" id="T_60831_row8_col5">6.8%</td>
-<td class="data row8 col6" id="T_60831_row8_col6">7.2%</td>
-<td class="data row8 col7" id="T_60831_row8_col7">3.1%</td>
-<td class="data row8 col8" id="T_60831_row8_col8">3.1%</td>
-<td class="data row8 col9" id="T_60831_row8_col9">2.9%</td>
-<td class="data row8 col10" id="T_60831_row8_col10">337,242</td>
+<td class="data row8 col0" id="T_c97a4_row8_col0">Rockford, IL</td>
+<td class="data row8 col1" id="T_c97a4_row8_col1">Apr 2026</td>
+<td class="data row8 col2" id="T_c97a4_row8_col2">1,057</td>
+<td class="data row8 col3" id="T_c97a4_row8_col3">153</td>
+<td class="data row8 col4" id="T_c97a4_row8_col4">6.0%</td>
+<td class="data row8 col5" id="T_c97a4_row8_col5">6.8%</td>
+<td class="data row8 col6" id="T_c97a4_row8_col6">7.2%</td>
+<td class="data row8 col7" id="T_c97a4_row8_col7">3.1%</td>
+<td class="data row8 col8" id="T_c97a4_row8_col8">3.1%</td>
+<td class="data row8 col9" id="T_c97a4_row8_col9">2.9%</td>
+<td class="data row8 col10" id="T_c97a4_row8_col10">337,242</td>
 </tr>
 <tr>
-<td class="data row9 col0" id="T_60831_row9_col0">Virginia Beach, VA</td>
-<td class="data row9 col1" id="T_60831_row9_col1">Apr 2026</td>
-<td class="data row9 col2" id="T_60831_row9_col2">1,702</td>
-<td class="data row9 col3" id="T_60831_row9_col3">38</td>
-<td class="data row9 col4" id="T_60831_row9_col4">5.8%</td>
-<td class="data row9 col5" id="T_60831_row9_col5">4.9%</td>
-<td class="data row9 col6" id="T_60831_row9_col6">5.9%</td>
-<td class="data row9 col7" id="T_60831_row9_col7">1.1%</td>
-<td class="data row9 col8" id="T_60831_row9_col8">1.5%</td>
-<td class="data row9 col9" id="T_60831_row9_col9">3.1%</td>
-<td class="data row9 col10" id="T_60831_row9_col10">-</td>
+<td class="data row9 col0" id="T_c97a4_row9_col0">Virginia Beach, VA</td>
+<td class="data row9 col1" id="T_c97a4_row9_col1">Apr 2026</td>
+<td class="data row9 col2" id="T_c97a4_row9_col2">1,702</td>
+<td class="data row9 col3" id="T_c97a4_row9_col3">38</td>
+<td class="data row9 col4" id="T_c97a4_row9_col4">5.8%</td>
+<td class="data row9 col5" id="T_c97a4_row9_col5">4.9%</td>
+<td class="data row9 col6" id="T_c97a4_row9_col6">5.9%</td>
+<td class="data row9 col7" id="T_c97a4_row9_col7">1.1%</td>
+<td class="data row9 col8" id="T_c97a4_row9_col8">1.5%</td>
+<td class="data row9 col9" id="T_c97a4_row9_col9">3.1%</td>
+<td class="data row9 col10" id="T_c97a4_row9_col10">-</td>
 </tr>
 </tbody>
 </table>
@@ -8492,7 +8480,7 @@ New Construction Median Sale Price Per Sqft: The median sale price divided by sq
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
