@@ -40,7 +40,7 @@ div.text_cell_render,
 /* --- Main container --- */
 main {
     padding: 1rem 2rem 0;
-    margin: 4rem 6rem 6rem;
+    margin: 4rem 8rem 8rem;
     background: var(--bg-white);
     border: 1px solid rgb(210, 210, 210);
 }
