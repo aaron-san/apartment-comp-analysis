@@ -2,47 +2,19 @@
     --bg-white: rgb(250, 246, 246);
 }
 
-
 html,
 body,
 .jp-LabShell,
 .jp-NotebookPanel,
 .jp-Notebook {
-  /* height: 100%; */
-  /* margin: 6rem 1rem 4rem 1rem; */
   padding: 2rem 0 0 0;
   margin: 0;
-  /* position: relative; */
-  /* background: url("https://t4.ftcdn.net/jpg/03/41/36/71/360_F_341367111_Cghn2q0TSlcsr4IwXmRYxbTJSE6oLLBN.jpg");
-  repeat-y center / cover; */
-  /* background: url("images/Painted White.jpg"); */
   overflow-wrap: break-word;
   font-family: 'Roboto', sans-serif;
 }
 
-/* Optional: remove padding around output wrapper */
-/* .jp-MarkdownOutput {
-  background: transparent !important;
-} */
-
-/* ----- UNIVERSAL MARKDOWN BACKGROUND ----- */
-.jp-MarkdownOutput .jp-RenderedHTMLCommon,
-.jp-MarkdownOutput,
-.jp-RenderedMarkdown,
-.jp-Notebook
-  .jp-Cell
-  .jp-Cell-outputWrapper
-  .jp-OutputArea
-  .jp-RenderedHTMLCommon,
-div.text_cell_render,
-.cell.markdown .output,
-.output-html,
-.output-markdown {
-  /* background: rgba(0, 0, 0, 0.1) !/important; */
-  background: var(--bg-white);
-  color: black !important;
-  /* padding: 12px !important; */
-  border-radius: 0 !important;
+body {
+  margin: 0;
 }
 
 @media (max-width: 600px) {
@@ -51,26 +23,50 @@ div.text_cell_render,
   }
 }
 
-/* --- Output area background --- */
+/* ----- MARKDOWN BACKGROUND ----- */
+.jp-MarkdownOutput .jp-RenderedHTMLCommon,
+.jp-MarkdownOutput,
+.jp-RenderedMarkdown,
+.jp-Notebook .jp-Cell .jp-Cell-outputWrapper .jp-OutputArea .jp-RenderedHTMLCommon,
+div.text_cell_render,
+.cell.markdown .output,
+.output-html,
+.output-markdown {
+  background: var(--bg-white);
+  color: black !important;
+  border-radius: 0 !important;
+}
 
-
+/* --- Main container --- */
 main {
-    /* width: 80%; */
     padding: 1rem 2rem 0;
     margin: 4rem 6rem 6rem;
     background: var(--bg-white);
     border: 1px solid rgb(210, 210, 210);
-    /* position: relative;
-    z-index: 10; */
-    /* background: url("images/Painted White.jpg"); */
 }
-
 
 @media (max-width: 600px) {
     main {
         margin: 18rem 0;
         padding: 0 4px;
         border: none;
+    }
+}
+
+/* --- Images --- */
+img {
+  width: 600px;
+}
+
+.jp-CodeCell > .jp-Cell-outputWrapper img {
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .jp-CodeCell > .jp-Cell-outputWrapper img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -89,76 +85,65 @@ main {
   background-color: #e0e0e0 !important;
 }
 
-/* --- Code transitions --- */
-.code-transition {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition:
-    max-height 0.35s ease,
-    opacity 0.35s ease;
-}
-.code-transition.show {
-  max-height: 500px;
-  opacity: 1;
+/* --- Code cell input: hidden by default, animated on toggle --- */
+.jp-CodeCell .jp-Cell-inputWrapper {
+    display: block !important;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
 }
 
-body {
-  margin: 0; /* remove default body margin */
+.jp-CodeCell.show-code .jp-Cell-inputWrapper {
+    max-height: 2000px;
+    opacity: 1;
+    padding: 0.5rem;
 }
 
-img {
-  width: 600px;
+/* --- Hide prompts --- */
+.jp-InputPrompt {
+    display: none !important;
 }
 
+.jp-OutputPrompt,
+.jp-OutputArea-prompt {
+    display: none !important;
+}
 
-/* #cover-page-container {
-    position: relative;
-    width: 100%;
-} */
+/* --- Output area --- */
+div:has(.jp-Cell-outputWrapper) {
+    padding: 1.4rem;
+}
 
-/* #cover-page-image-container {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+.jp-OutputArea {
+    overflow-x: visible !important;
+}
 
-} */
+.jp-RenderedHTMLCommon {
+    padding-right: 5px;
+}
 
-/* #cover-page-image {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;  
-} */
+/* --- Hide cells with remove_cell tag --- */
+.jp-Notebook-cell.celltag_remove_cell {
+    display: none !important;
+}
 
-/* object-fit: cover; */
-/* opacity: 0.6; */
-/* filter: grayscale(100%) blur(2px); */
-/* filter: contrast(80%); */
-/* filter: opacity(70) grayscale(70%); */
-/* filter: saturate(80%) brightness(90%); */
-/* filter: saturate(70%); // color intensity */
-/* filter: saturate(70%) blur(1px); // color intensity */
-/* filter: sepia(80%); // add a warm brown tone */
+/* --- Table wrapper for horizontal scroll --- */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid gray;
+}
 
-/* #title-container {
-    position: relative;
-    z-index: 1;
-    color: white;
-    top: 0px;
-    width: 100%;
-} */
+.table-wrapper table {
+    width: max-content;
+    min-width: 100%;
+    table-layout: auto;
+}
 
-
-
-
+/* --- Cover page --- */
 #cover-page-container {
-    position: absolute; /* Allows positioning of the image and text within the container */
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -172,17 +157,12 @@ img {
     left: 0;
     width: 100%;
     height: 400px;
-    /* object-fit: cover; Ensures the image covers the entire container */
-    z-index: -1; /* Sends the image to the background */
+    z-index: -1;
 }
 
 #title-container {
-    /* position: absolute; Positioning on top of the image */
-    /* top: 50%; Position vertically in the middle */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); Centers the text horizontally and vertically */
-    color: white; /* Text color */
-    text-align: center; /* Centers the text */
+    color: white;
+    text-align: center;
     padding: 8rem 0 2rem;
 }
 
@@ -200,22 +180,14 @@ img {
 }
 
 #title-bar {
-    /* position: absolute;
-    bottom: 0;
-    left: 0; */
     width: 30%;
     text-align: center;
     margin: 0 auto;
-    height: 1px; /* You can adjust the height */
-    background-color: #fff; /* Adjust background color as needed */
     height: 1px;
+    background-color: #fff;
 }
 
-
-div:has(.jp-Cell-outputWrapper) {
-    padding: 1.4rem;
-}
-
+/* --- Panel components --- */
 .panel-container {
   display: flex;
   justify-content: start;
@@ -234,73 +206,36 @@ div:has(.jp-Cell-outputWrapper) {
 .panel {
     display: flex;
     flex-direction: column;
-  /* background: linear-gradient(to right bottom, rgb(55, 55, 55), rgb(84, 84, 84)); */
-  /* background-color: rgba(87, 87, 87, 0.7); */
-  /* color: white; */
-  color: #333;
-  padding: 0.5rem 1.2rem;
-  border-radius: 4px;
-  border: 1px solid rgb(60,60,60);
-  max-width: 230px;
-  /* box-shadow: 2px 2px 8px 0px #999; */
-  justify-content: center;
-  margin-top: 4px;
-}
-
-.panel-green {
-    background: linear-gradient(to right bottom, rgb(55, 95, 55), rgb(84, 199, 84));
-}
-
-.panel-blue {
-    background: linear-gradient(to right bottom, rgb(55, 55, 95), rgb(84, 84, 200));
-}
-
-.panel-gray {
-    background: linear-gradient(to right bottom, rgb(55, 55, 55), rgb(84, 84, 84));
-}
-
-.panel-red {
-    background: linear-gradient(to right bottom, rgb(95, 55, 55), rgb(200, 84, 84));
-}
-/* .subpanel-green {
-    border: 1px solid white;
-    min-width: 80px;
-    max-width: 100px;
-    padding: 0.4rem 0.6rem;
+    color: #333;
+    padding: 0.5rem 1.2rem;
     border-radius: 4px;
-    background: linear-gradient(to right bottom, rgb(55, 95, 55), rgb(84, 199, 84));
-} */
-/* .subpanel-red {
-    border: 1px solid white;
-    min-width: 80px;
-    max-width: 100px;
-    padding: 0.4rem 0.6rem;
-    border-radius: 4px;
-    background: linear-gradient(to right bottom, rgb(95, 55, 55), rgb(200, 84, 84));
-} */
-
-.panel-brown {
-    background: linear-gradient(to right bottom, rgb(70, 57, 26), rgb(162, 134, 67));
+    border: 1px solid rgb(60,60,60);
+    max-width: 230px;
+    justify-content: center;
+    margin-top: 4px;
 }
+
+.panel-green  { background: linear-gradient(to right bottom, rgb(55, 95, 55),  rgb(84, 199, 84)); }
+.panel-blue   { background: linear-gradient(to right bottom, rgb(55, 55, 95),  rgb(84, 84, 200)); }
+.panel-gray   { background: linear-gradient(to right bottom, rgb(55, 55, 55),  rgb(84, 84, 84));  }
+.panel-red    { background: linear-gradient(to right bottom, rgb(95, 55, 55),  rgb(200, 84, 84)); }
+.panel-brown  { background: linear-gradient(to right bottom, rgb(70, 57, 26),  rgb(162, 134, 67));}
 
 .panel-title {
-  font-decoration: bold;
   text-align: center;
   font-size: 1.2rem;
   line-height: 1.2em;
   margin-bottom: 10px;
-  /* max-width: 160px; */
   color: rgb(30, 30, 30);
 }
 
-.panel-title > sup {
-    font-size: 0.8rem;
-}
+.panel-title > sup { font-size: 0.8rem; }
+
 .panel-date {
-    /* color: #c0bebe; */
     color: #555;
     text-align: center;
 }
+
 .panel-subtitle,
 .panel-group-subtitle {
     display: flex;
@@ -309,12 +244,9 @@ div:has(.jp-Cell-outputWrapper) {
     width: 100%;
     text-align: center;
 }
-.panel-group-subtitle {
-    border-bottom: 1px solid #999;
-}
-.panel-subtitle div {
-    text-align: center;
-}
+
+.panel-group-subtitle { border-bottom: 1px solid #999; }
+.panel-subtitle div   { text-align: center; }
 
 .panel-values {
     display: flex;
@@ -328,21 +260,14 @@ div:has(.jp-Cell-outputWrapper) {
   text-align: center;
 }
 
-.panel-value-green {
-    color: rgb(100, 240, 100)
-}
-
-.panel-value-red {
-    color: rgb(240, 140, 140)
-}
-
+.panel-value-green { color: rgb(100, 240, 100); }
+.panel-value-red   { color: rgb(240, 140, 140); }
 
 .panel-group-container {
     display: flex;
     align-items: stretch;
     justify-content: space-evenly;
     gap: 1rem;
-
 }
 
 .panel-group {
@@ -353,96 +278,12 @@ div:has(.jp-Cell-outputWrapper) {
     margin: 0.5rem 0;
 }
 
-
-
-
-
-
-.jp-InputPrompt {
-    display: none !important;    
-    /* width: 100%;
-    padding: 0; */
-}
-
-
 .panel-footer {
     color: rgb(250,250,250);
     text-align: center;
 }
 
-
-
-.jp-CodeCell .jp-Cell-inputWrapper {
-    display: block !important;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.35s ease, opacity 0.25s ease;
-}
-
-.jp-CodeCell.show-code .jp-Cell-inputWrapper {
-    max-height: 2000px;
-    padding: 0.5rem;
-    opacity: 1;
-}
-
-.jp-CodeCell > .jp-Cell-outputWrapper img {
-    /* border: 2px solid #999; */
-    border-radius: 5px;
-    /* box-shadow: 0px 0px 14px 0px #999; */
-    /* border: 1px solid rgb(60,60,60); */
-}
-
-@media (max-width: 600px) {
-    .jp-CodeCell > .jp-Cell-outputWrapper img {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
-/* div > div.jp-InputArea.jp-Cell-inputArea > div.jp-RenderedHTMLCommon.jp-RenderedMarkdown.jp-MarkdownOutput p img {
-    border-radius: 5px;
-    margin-top: 4px;
-    box-shadow: 2px 2px 8px 0px #999;
-    /* max-width: 98%; */
-
-.jp-RenderedHTMLCommon {
-    padding-right: 5px;
-}
-
-
-.jp-Cell .jp-CodeCell, .jp-mod-noOutputs {
-    display: none !important;
-}    
-    
-/* .celltag_remove_cell, .jp-RenderedText {
-        display: none !important;    
-} */
-.jp-OutputPrompt, .jp-OutputArea-prompt {
-    display: block !important;    
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-}
-            
-jp-OutputPrompt.jp-OutputArea-prompt {
-    display: none;
-}
-
-            /*
-
-.jp-Cell.jp-CodeCell.jp-Notebook-cell {
-  border: 2px solid dodgerblue;
-  border-radius: 6px;
-  margin: 8px 0;
-} */
-
-
-.jp-Notebook-cell.celltag_remove_cell {
-    display: none !important;
-}
-
+/* --- Note component --- */
 .note {
     background: rgb(240,240,240);
     border-radius: 4px;
@@ -471,40 +312,6 @@ jp-OutputPrompt.jp-OutputArea-prompt {
     font-size: 0.75rem;
     color: rgb(70, 70, 70);
     line-height: 1.4em;
-    z-index: 1;
-}
-
-.jp-Notebook.jp-Cell:not(.jp-mod-active).jp-OutputPrompt {
-    display: none;
-}
-.jp-OutputPrompt, .jp-OutputArea-prompt {
-    display: none important!;
-}
-div.jp-Cell-outputWrapper > div.jp-OutputArea.jp-Cell-outputArea > div > div.jp-OutputPrompt.jp-OutputArea-prompt {
-    display: none;
-}
-
-
-.table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border: 1px solid gray;
-}
-
-/* Let the table grow naturally */
-.table-wrapper table {
-    width: max-content;   /* key fix */
-    min-width: 100%;      /* ensures it fills when small */
-    table-layout: auto;
-}
-
-.jp-OutputArea {
-    overflow-x: visible !important;
-}
-
-/* div.jp-Cell-outputWrapper > div.jp-OutputArea */
-.jp-Cell-outputArea {
-    padding: 10px important!;
 }
 
 div:has(.note) {
