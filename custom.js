@@ -1,68 +1,45 @@
-// // Ensure the script runs after the page is fully loaded
-// window.onload = function () {
-//   // Select all table elements on the page
-//   const tables = document.querySelectorAll("table");
+window.addEventListener("DOMContentLoaded", function () {
+  addToggleButtons();
+});
 
-//   // Loop through each table and wrap it with a div
-//   tables.forEach((table) => {
-//     const wrapper = document.createElement("div"); // Create a new div element
-//     wrapper.classList.add("table-wrapper"); // Optional: Add a class for styling
+function addToggleButtons() {
+  const codeCells = document.querySelectorAll(".jp-CodeCell");
 
-//     // Insert the wrapper div before the table
-//     table.parentNode.insertBefore(wrapper, table);
+  codeCells.forEach((cell) => {
+    if (cell.getAttribute("data-toggle-added") === "true") return;
 
-//     // Move the table inside the div
-//     wrapper.appendChild(table);
-//   });
+    const inputWrapper = cell.querySelector(".jp-Cell-inputWrapper");
+    if (!inputWrapper) return;
 
-//   // Select the main element
-//   const mainElement = document.querySelector("main");
+    const btn = document.createElement("button");
+    btn.textContent = "Show Code";
+    btn.className = "toggle-btn";
+    btn.style.cssText = [
+      "display: block",
+      "margin: 4px 0 4px 0",
+      "padding: 2px 10px",
+      "font-size: 11px",
+      "cursor: pointer",
+      "background: #f0f0f0",
+      "border: 1px solid #ccc",
+      "border-radius: 3px",
+    ].join("; ");
 
-//   // Select the cover-page-container
-//   const coverPageContainer = document.querySelector("#cover-page-container");
+    // Start hidden
+    inputWrapper.style.display = "none";
 
-//   // Prepend the cover page container to the main element
-//   mainElement.prepend(coverPageContainer);
-// };
+    btn.addEventListener("click", function () {
+      const hidden = inputWrapper.style.display === "none";
+      inputWrapper.style.display = hidden ? "" : "none";
+      btn.textContent = hidden ? "Hide Code" : "Show Code";
+    });
 
-// function addSmoothToggleButtons() {
-//   const classicCodeCells = document.querySelectorAll("div.code_cell");
-//   const labCodeCells = document.querySelectorAll(".jp-CodeCell");
-//   const allCodeCells = [...classicCodeCells, ...labCodeCells];
+    cell.insertBefore(btn, inputWrapper);
+    cell.setAttribute("data-toggle-added", "true");
+  });
 
-//   allCodeCells.forEach((cell) => {
-//     if (cell.getAttribute("data-toggle-added") === "true") return;
-
-//     let codeInput =
-//       cell.querySelector(".input") ||
-//       cell.querySelector(".jp-Cell-inputWrapper");
-//     if (!codeInput) return;
-
-//     const wrapper = document.createElement("div");
-//     wrapper.classList.add("code-transition");
-//     codeInput.parentNode.insertBefore(wrapper, codeInput);
-//     wrapper.appendChild(codeInput);
-
-//     const btn = document.createElement("button");
-//     btn.textContent = "Show Code";
-//     btn.className = "toggle-btn";
-
-//     btn.onclick = () => {
-//       wrapper.classList.toggle("show");
-//       btn.textContent = wrapper.classList.contains("show")
-//         ? "Hide Code"
-//         : "Show Code";
-//     };
-
-//     cell.insertBefore(btn, wrapper);
-//     cell.setAttribute("data-toggle-added", "true");
-//   });
-
-//   /* Hide prompts */
-//   document
-//     .querySelectorAll(".jp-InputPrompt, .jp-OutputPrompt")
-//     .forEach((el) => (el.style.display = "none"));
-// }
-
-// // document.addEventListener("DOMContentLoaded", addSmoothToggleButtons);
-// // setTimeout(addSmoothToggleButtons, 1200);
+  // Hide input/output prompts
+  document
+    .querySelectorAll(".jp-InputPrompt, .jp-OutputPrompt")
+    .forEach((el) => (el.style.display = "none"));
+}
