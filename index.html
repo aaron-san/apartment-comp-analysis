@@ -7800,27 +7800,51 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
 
+
 <span class="n">html</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">&lt;style&gt;</span>
-<span class="s2">body {</span>
-<span class="s2">    background: white;</span>
-<span class="s2">    background-image:</span>
-<span class="s2">        radial-gradient(circle at 0</span><span class="si">% 0%</span><span class="s2">, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),</span>
-<span class="s2">        radial-gradient(circle at 100</span><span class="si">% 0%</span><span class="s2">, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),</span>
-<span class="s2">        radial-gradient(circle at 0</span><span class="si">% 100%</span><span class="s2">, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),</span>
-<span class="s2">        radial-gradient(circle at 100</span><span class="si">% 100%</span><span class="s2">, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),</span>
-<span class="s2">        radial-gradient(circle at 50</span><span class="si">% 0%</span><span class="s2">, rgba(200,200,200,0.18) 0, rgba(200,200,200,0) 60%),</span>
-<span class="s2">        radial-gradient(circle at 50</span><span class="si">% 100%</span><span class="s2">, rgba(200,200,200,0.18) 0, rgba(200,200,200,0) 60%);</span>
-<span class="s2">    background-repeat: no-repeat;</span>
-<span class="s2">    background-attachment: fixed;</span>
+<span class="s2">/* Container that holds the bubbles */</span>
+<span class="s2">.bubble-container {</span>
+<span class="s2">    position: fixed;</span>
+<span class="s2">    top: 0;</span>
+<span class="s2">    left: 0;</span>
+<span class="s2">    width: 100%;</span>
+<span class="s2">    height: 100%;</span>
+<span class="s2">    pointer-events: none; /* Don't block clicks */</span>
+<span class="s2">    z-index: -1; /* Behind notebook content */</span>
 <span class="s2">}</span>
+
+<span class="s2">/* Individual bubbles */</span>
+<span class="s2">.bubble {</span>
+<span class="s2">    position: absolute;</span>
+<span class="s2">    background: rgba(180, 180, 180, 0.35);</span>
+<span class="s2">    border-radius: 50%;</span>
+<span class="s2">}</span>
+
+<span class="s2">/* Define bubbles around the perimeter */</span>
+<span class="s2">.b1 { width: 120px; height: 120px; top: 20px; left: 20px; }</span>
+<span class="s2">.b2 { width: 90px; height: 90px; top: 40px; right: 40px; }</span>
+<span class="s2">.b3 { width: 140px; height: 140px; bottom: 30px; left: 50px; }</span>
+<span class="s2">.b4 { width: 100px; height: 100px; bottom: 50px; right: 60px; }</span>
+<span class="s2">.b5 { width: 70px; height: 70px; top: 50%; left: -20px; transform: translateY(-50%); }</span>
+<span class="s2">.b6 { width: 70px; height: 70px; top: 50%; right: -20px; transform: translateY(-50%); }</span>
 <span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;div class="bubble-container"&gt;</span>
+<span class="s2">    &lt;div class="bubble b1"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b2"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b3"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b4"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b5"&gt;&lt;/div&gt;</span>
+<span class="s2">    &lt;div class="bubble b6"&gt;&lt;/div&gt;</span>
+<span class="s2">&lt;/div&gt;</span>
 <span class="s2">"""</span>
+
 
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html</span><span class="p">))</span>
 
@@ -7844,19 +7868,40 @@ a.anchor-link {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style>
-body {
-    background: white;
-    background-image:
-        radial-gradient(circle at 0% 0%, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),
-        radial-gradient(circle at 100% 0%, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),
-        radial-gradient(circle at 0% 100%, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),
-        radial-gradient(circle at 100% 100%, rgba(200,200,200,0.25) 0, rgba(200,200,200,0) 60%),
-        radial-gradient(circle at 50% 0%, rgba(200,200,200,0.18) 0, rgba(200,200,200,0) 60%),
-        radial-gradient(circle at 50% 100%, rgba(200,200,200,0.18) 0, rgba(200,200,200,0) 60%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+/* Container that holds the bubbles */
+.bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Don't block clicks */
+    z-index: -1; /* Behind notebook content */
 }
+
+/* Individual bubbles */
+.bubble {
+    position: absolute;
+    background: rgba(180, 180, 180, 0.35);
+    border-radius: 50%;
+}
+
+/* Define bubbles around the perimeter */
+.b1 { width: 120px; height: 120px; top: 20px; left: 20px; }
+.b2 { width: 90px; height: 90px; top: 40px; right: 40px; }
+.b3 { width: 140px; height: 140px; bottom: 30px; left: 50px; }
+.b4 { width: 100px; height: 100px; bottom: 50px; right: 60px; }
+.b5 { width: 70px; height: 70px; top: 50%; left: -20px; transform: translateY(-50%); }
+.b6 { width: 70px; height: 70px; top: 50%; right: -20px; transform: translateY(-50%); }
 </style>
+<div class="bubble-container">
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+<div class="bubble b4"></div>
+<div class="bubble b5"></div>
+<div class="bubble b6"></div>
+</div>
 </div>
 </div>
 </div>
