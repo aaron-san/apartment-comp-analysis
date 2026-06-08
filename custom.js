@@ -1,6 +1,6 @@
-window.addEventListener("DOMContentLoaded", function () {
-  addToggleButtons();
-});
+window.onload = function () {
+  setTimeout(addToggleButtons, 300);
+};
 
 function addToggleButtons() {
   const codeCells = document.querySelectorAll(".jp-CodeCell");
