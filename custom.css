@@ -23,9 +23,12 @@ body {
   }
 }
 
+/* Hide the entire collapse/toggle UI for cells tagged no_toggle */
 div.cell.tag_no_toggle .jp-Collapser,
 div.cell.tag_no_toggle .input_collapser,
-div.cell.tag_no_toggle .output_collapser {
+div.cell.tag_no_toggle .output_collapser,
+div.cell.tag_no_toggle .jp-InputPrompt,
+div.cell.tag_no_toggle .jp-OutputPrompt {
     display: none !important;
 }
 
