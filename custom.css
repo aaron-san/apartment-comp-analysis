@@ -102,8 +102,8 @@ img {
 }
 
 
-.jp-Cell-inputWrapper {
-    padding: 1rem;
+.jp-CodeCell .jp-Cell-inputArea {
+    padding: 0.5rem 1rem;
 }
 
 /* --- Hide prompts --- */
