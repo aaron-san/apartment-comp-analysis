@@ -359,7 +359,7 @@ div:has(.jp-Cell-outputWrapper) {
 
 
 .jp-InputPrompt {
-    display: block !important;    
+    display: none !important;    
     /* width: 100%;
     padding: 0; */
 }
