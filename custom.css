@@ -23,15 +23,28 @@ body {
   }
 }
 
-/* Hide the entire collapse/toggle UI for cells tagged no_toggle */
-div.cell.tag_no_toggle .jp-Collapser,
-div.cell.tag_no_toggle .input_collapser,
-div.cell.tag_no_toggle .output_collapser,
-div.cell.tag_no_toggle .jp-InputPrompt,
-div.cell.tag_no_toggle .jp-OutputPrompt {
+/* ============================================================
+   HIDE TOGGLE + INPUT + OUTPUT FOR CELLS TAGGED "no_toggle"
+   ============================================================ */
+
+.jp-Notebook-cell.celltag_no_toggle .jp-Collapser,
+.jp-Notebook-cell.celltag_no_toggle .jp-InputCollapser,
+.jp-Notebook-cell.celltag_no_toggle .jp-OutputCollapser {
     display: none !important;
 }
 
+.jp-Notebook-cell.celltag_no_toggle .jp-Cell-inputWrapper {
+    display: none !important;
+}
+
+.jp-Notebook-cell.celltag_no_toggle .jp-Cell-outputWrapper {
+    display: none !important;
+}
+
+.jp-Notebook-cell.celltag_no_toggle .jp-InputPrompt,
+.jp-Notebook-cell.celltag_no_toggle .jp-OutputPrompt {
+    display: none !important;
+}
 
 /* ----- MARKDOWN BACKGROUND ----- */
 .jp-MarkdownOutput .jp-RenderedHTMLCommon,
@@ -80,7 +93,7 @@ img {
     }
 }
 
-/* --- Toggle button --- */
+/* --- Toggle button styling (for other cells) --- */
 .toggle-btn {
   border-radius: 10px !important;
   padding: 4px 10px !important;
@@ -95,7 +108,7 @@ img {
   background-color: #e0e0e0 !important;
 }
 
-/* --- Code cell input: hidden by default, animated on toggle --- */
+/* --- Code cell input animation --- */
 .jp-CodeCell .jp-Cell-inputWrapper {
     display: block !important;
     max-height: 0;
@@ -109,12 +122,11 @@ img {
     opacity: 1;
 }
 
-
 .cm-editor {
     padding: 0.5rem 1rem;
 }
 
-/* --- Hide prompts --- */
+/* --- Hide prompts globally --- */
 .jp-InputPrompt {
     display: none !important;
 }
@@ -124,16 +136,13 @@ img {
     display: none !important;
 }
 
-/* Hide the little toolbar/buttons for hidden-input cells */
+/* --- Hide toolbar for hide_input-tagged cells --- */
 div.cell.tag_hide_input .input_prompt,
 div.cell.tag_hide_input .prompt,
 div.cell.tag_hide_input .jp-InputPrompt,
 div.cell.tag_hide_input .jp-Cell-inputWrapper .jp-Toolbar {
     display: none !important;
 }
-
-
-
 
 /* --- Output area --- */
 div:has(.jp-Cell-outputWrapper) {
@@ -148,7 +157,7 @@ div:has(.jp-Cell-outputWrapper) {
     padding-right: 5px;
 }
 
-/* --- Hide cells with remove_cell tag --- */
+/* --- Hide cells tagged remove_cell (legacy support) --- */
 .jp-Notebook-cell.celltag_remove_cell {
     display: none !important;
 }
