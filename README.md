@@ -26,9 +26,9 @@ This project analyzes U.S. metro-level apartment rental rate trends using Zillow
 
 | Dataset                                  | Source             | Description                                                                  |
 | ---------------------------------------- | ------------------ | ---------------------------------------------------------------------------- |
-| ZORI — Multi-Family, Seasonally Adjusted | Zillow Research    | Smoothed, repeat-rent index for multi-family properties; metro-level monthly |
-| ZORDI — All Homes                        | Zillow Research    | Renter demand proxy based on listing engagement; metro-level monthly         |
-| ZORDI — Multi-Family                     | Zillow Research    | Same as above, scoped to multi-family                                        |
+| ZORI - Multi-Family, Seasonally Adjusted | Zillow Research    | Smoothed, repeat-rent index for multi-family properties; metro-level monthly |
+| ZORDI - All Homes                        | Zillow Research    | Renter demand proxy based on listing engagement; metro-level monthly         |
+| ZORDI - Multi-Family                     | Zillow Research    | Same as above, scoped to multi-family                                        |
 | New Construction Median Sale Price/Sqft  | Zillow Research    | SFR/condo new construction pricing; metro-level monthly                      |
 | CBSA Population Estimates                | U.S. Census Bureau | 2025 metro population estimates (released May 2026)                          |
 
@@ -70,12 +70,12 @@ ZORI is a repeat-rent index weighted to the full rental housing stock (not just 
 | 2    | Evansville, IN   | $1,001 | 12.0%    | 9.7%     | 9.9%     | 273,786    |
 | 3    | Binghamton, NY   | $1,213 | 8.9%     | 7.1%     | 9.6%     | 243,189    |
 | 4    | Reno, NV         | $1,783 | 8.9%     | 5.9%     | 4.3%     | 578,734    |
-| 5    | Gulfport, MS     | $1,206 | 8.3%     | 6.6%     | 8.2%     | —          |
+| 5    | Gulfport, MS     | $1,206 | 8.3%     | 6.6%     | 8.2%     | -          |
 
 **Notable observations:**
 
-- Cedar Rapids leads on growth rate and declining volatility — suggesting trend stability
-- Evansville shows accelerating volatility alongside high growth — less predictable
+- Cedar Rapids leads on growth rate and declining volatility - suggesting trend stability
+- Evansville shows accelerating volatility alongside high growth - less predictable
 - Reno is the largest market in the top 5 and sits at a higher absolute rent level
 
 ---
