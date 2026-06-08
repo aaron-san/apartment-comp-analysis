@@ -373,10 +373,16 @@ div:has(.jp-Cell-outputWrapper) {
 
 
 .jp-CodeCell .jp-Cell-inputWrapper {
-    display: none;
-}
-.jp-CodeCell.show-code .jp-Cell-inputWrapper {
     display: block !important;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.jp-CodeCell.show-code .jp-Cell-inputWrapper {
+    max-height: 2000px;
+    opacity: 1;
 }
 
 .jp-CodeCell > .jp-Cell-outputWrapper img {
