@@ -91,18 +91,16 @@ img {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    padding: 0.5rem;
     transition: max-height 0.35s ease, opacity 0.25s ease;
 }
 
 .jp-CodeCell.show-code .jp-Cell-inputWrapper {
     max-height: 2000px;
     opacity: 1;
-    padding: 0.5rem;
 }
 
 
-.jp-inputArea-editor pre {
+.cm-editor {
     padding: 0.5rem 1rem;
 }
 
