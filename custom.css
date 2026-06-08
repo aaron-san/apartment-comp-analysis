@@ -91,6 +91,7 @@ img {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    padding: 0.5rem;
     transition: max-height 0.35s ease, opacity 0.25s ease;
 }
 
