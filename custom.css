@@ -102,7 +102,7 @@ img {
 }
 
 
-.jp-CodeCell .jp-Cell-inputArea {
+.jp-CodeCell .jp-Cell-inputArea pre {
     padding: 0.5rem 1rem;
 }
 
