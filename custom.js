@@ -1,5 +1,5 @@
 window.onload = function () {
-  setTimeout(addToggleButtons, 300);
+  setTimeout(addToggleButtons, 1000);
 };
 
 function addToggleButtons() {
