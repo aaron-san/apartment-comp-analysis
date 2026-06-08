@@ -1,3 +1,7 @@
+:root {
+    --bg-white: rgb(250, 246, 246);
+}
+
 
 html,
 body,
@@ -35,7 +39,7 @@ div.text_cell_render,
 .output-html,
 .output-markdown {
   /* background: rgba(0, 0, 0, 0.1) !/important; */
-  background: white;
+  background: var(--bg-white);
   color: black !important;
   /* padding: 12px !important; */
   border-radius: 0 !important;
@@ -54,7 +58,7 @@ main {
     /* width: 80%; */
     padding: 1rem 2rem 0;
     margin: 4rem 6rem 6rem;
-    background: rgb(250, 246, 246);
+    background: var(--bg-white);
     border: 1px solid rgb(210, 210, 210);
     /* position: relative;
     z-index: 10; */
