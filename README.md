@@ -4,6 +4,11 @@
 **Last Updated:** June 7, 2026  
 **Data Source:** Zillow Research, U.S. Census Bureau
 
+-- normal
+python -m nbconvert main.ipynb --to html
+-- collapsible
+python -m nbconvert main.ipynb --to html --template lab 
+
 ---
 
 ## Overview
