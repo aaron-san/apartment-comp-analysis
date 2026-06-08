@@ -382,6 +382,7 @@ div:has(.jp-Cell-outputWrapper) {
 
 .jp-CodeCell.show-code .jp-Cell-inputWrapper {
     max-height: 2000px;
+    padding: 0.5rem;
     opacity: 1;
 }
 
